@@ -1,0 +1,54 @@
+<%= form_for(setup_space(@storage_space)) do |f| %>
+  <% if @storage_space.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@storage_space.errors.count, "error") %> prohibited this storage_space from being saved:</h2>
+
+      <ul>
+      <% @storage_space.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.number_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br>
+    <%= f.text_area :comments %>
+  </div>
+  <div class="field">
+      
+    <%= f.label :server_id %><br>
+    <%= f.collection_select(:server_id, Server.all, :id, :name, prompt: true) %>
+  </div>
+
+    <%= f.fields_for :service do |s| %>
+            <div class="field">
+                <%= s.label :user_id %><br>
+                <%= s.text_field :user_id %>
+            </div>
+            <div class="field">
+                <%= s.hidden_field :servicetype_id, :value => ServiceType.find_by_name("Storage Space").id %>
+            </div>
+             
+          <div class="field">
+            <%= s.label :startdate %><br>
+            <%= s.date_select :startdate %>
+          </div>
+          <div class="field">
+            <%= s.label :enddate %><br>
+            <%= s.date_select :enddate %>
+          </div>
+          <div class="field">
+            <%= s.label :cost %><br>
+            <%= s.number_field :cost %>
+          </div>
+    <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

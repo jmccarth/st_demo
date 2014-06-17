@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  accounttype: MyString
+  accountnum: MyString
+  paymentdate: 2014-06-17
+  amount: 1
+  service_id: 1
+
+two:
+  user_id: 1
+  accounttype: MyString
+  accountnum: MyString
+  paymentdate: 2014-06-17
+  amount: 1
+  service_id: 1

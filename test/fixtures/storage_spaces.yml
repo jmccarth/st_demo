@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 1
+  comments: MyText
+  server_id: 1
+  service_id: 1
+
+two:
+  amount: 1
+  comments: MyText
+  server_id: 1
+  service_id: 1

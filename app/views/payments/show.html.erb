@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @payment.user_id %>
+</p>
+
+<p>
+  <strong>Accounttype:</strong>
+  <%= @payment.accounttype %>
+</p>
+
+<p>
+  <strong>Accountnum:</strong>
+  <%= @payment.accountnum %>
+</p>
+
+<p>
+  <strong>Paymentdate:</strong>
+  <%= @payment.paymentdate %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @payment.amount %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @payment.service_id %>
+</p>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>

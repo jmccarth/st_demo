@@ -1,0 +1,69 @@
+<%= form_for(setup_vm(@virtual_machine)) do |f| %>
+  <% if @virtual_machine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@virtual_machine.errors.count, "error") %> prohibited this virtual_machine from being saved:</h2>
+
+      <ul>
+      <% @virtual_machine.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :hostname %><br>
+    <%= f.text_field :hostname %>
+  </div>
+  <div class="field">
+    <%= f.label :os %><br>
+    <%= f.text_field :os %>
+  </div>
+  <div class="field">
+    <%= f.label :hd %><br>
+    <%= f.number_field :hd %>
+  </div>
+  <div class="field">
+    <%= f.label :mem %><br>
+    <%= f.number_field :mem %>
+  </div>
+  <div class="field">
+    <%= f.label :cpu %><br>
+    <%= f.number_field :cpu %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br>
+    <%= f.text_area :comments %>
+  </div>
+  <div class="field">
+    <%= f.label :server_id %><br>
+    <%= f.collection_select(:server_id, Server.all, :id, :name, prompt: true) %>
+  </div>
+
+    <%= f.fields_for :service do |s| %>
+            <div class="field">
+                <%= s.label :user_id %><br>
+                <%= s.text_field :user_id %>
+            </div>
+            <div class="field">
+                <%= s.hidden_field :servicetype_id, :value => ServiceType.find_by_name("Virtual Machine").id %>
+            </div>
+             
+          <div class="field">
+            <%= s.label :startdate %><br>
+            <%= s.date_select :startdate %>
+          </div>
+          <div class="field">
+            <%= s.label :enddate %><br>
+            <%= s.date_select :enddate %>
+          </div>
+          <div class="field">
+            <%= s.label :cost %><br>
+            <%= s.number_field :cost %>
+          </div>
+    <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

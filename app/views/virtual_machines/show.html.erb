@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+<h3>Virtual Machine Details</h3>
+
+<p>
+  <strong>Hostname:</strong>
+  <%= @virtual_machine.hostname %>
+</p>
+
+<p>
+  <strong>Os:</strong>
+  <%= @virtual_machine.os %>
+</p>
+
+<p>
+  <strong>Hd:</strong>
+  <%= @virtual_machine.hd %>
+</p>
+
+<p>
+  <strong>Mem:</strong>
+  <%= @virtual_machine.mem %>
+</p>
+
+<p>
+  <strong>Cpu:</strong>
+  <%= @virtual_machine.cpu %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @virtual_machine.comments %>
+</p>
+
+<p>
+  <strong>Server:</strong>
+  <%= @virtual_machine.server_id %>
+</p>
+
+<h3>Service Details</h3>
+
+<p>
+    <strong>User:</strong>
+    <%= @virtual_machine.service.user_id %>
+</p>
+<p>
+    <strong>Start Date:</strong>
+    <%= @virtual_machine.service.startdate %>
+</p>
+<p>
+    <strong>End Date:</strong>
+    <%= @virtual_machine.service.enddate %>
+</p>
+<p>
+    <strong>Cost:</strong>
+    <%= @virtual_machine.service.cost %>
+</p>
+
+<%= link_to 'Edit', edit_virtual_machine_path(@virtual_machine) %> |
+<%= link_to 'Back', virtual_machines_path %>

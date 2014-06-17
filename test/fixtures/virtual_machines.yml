@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hostname: MyString
+  os: MyString
+  hd: 1
+  mem: 1
+  cpu: 1
+  comments: MyText
+  server_id: 1
+  service_id: 1
+
+two:
+  hostname: MyString
+  os: MyString
+  hd: 1
+  mem: 1
+  cpu: 1
+  comments: MyText
+  server_id: 1
+  service_id: 1

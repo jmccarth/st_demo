@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @server.name %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @server.model %>
+</p>
+
+<p>
+  <strong>Hd:</strong>
+  <%= @server.hd %>
+</p>
+
+<p>
+  <strong>Mem:</strong>
+  <%= @server.mem %>
+</p>
+
+<p>
+  <strong>Cpu:</strong>
+  <%= @server.cpu %>
+</p>
+
+<p>
+  <strong>Os:</strong>
+  <%= @server.os %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @server.size %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @server.location_id %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @server.service_id %>
+</p>
+
+<h3>Services hosted on this server</h3>
+<h4>Virtual Machines</h4>
+<p>
+    <% @server.virtual_machines.each do |vm| %>
+        <li><%= link_to vm.hostname, virtual_machine_path(vm) %></li>
+    <% end %>
+</p>
+<p>
+    <h4>Storage Space</h4>
+    <% @server.storage_spaces.each do |space| %>
+        <li><%= link_to space.amount, storage_space_path(space) %></li>    
+    <% end %>
+</p>
+
+<%= link_to 'Edit', edit_server_path(@server) %> |
+<%= link_to 'Back', servers_path %>

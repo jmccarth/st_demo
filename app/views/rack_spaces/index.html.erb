@@ -1,0 +1,27 @@
+<h1>Listing rack_spaces</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Size</th>
+      <th>Location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rack_spaces.each do |rack_space| %>
+      <tr>
+        <td><%= rack_space.size %></td>
+        <td><%= rack_space.location_id %></td>
+        <td><%= link_to 'Show', rack_space %></td>
+        <td><%= link_to 'Edit', edit_rack_space_path(rack_space) %></td>
+        <td><%= link_to 'Destroy', rack_space, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rack space', new_rack_space_path %>

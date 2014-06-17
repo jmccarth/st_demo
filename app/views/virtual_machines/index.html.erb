@@ -1,0 +1,39 @@
+<h1>Listing virtual_machines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hostname</th>
+      <th>Os</th>
+      <th>Hd</th>
+      <th>Mem</th>
+      <th>Cpu</th>
+      <th>Comments</th>
+      <th>Server</th>
+      <th>Service</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @virtual_machines.each do |virtual_machine| %>
+      <tr>
+        <td><%= virtual_machine.hostname %></td>
+        <td><%= virtual_machine.os %></td>
+        <td><%= virtual_machine.hd %></td>
+        <td><%= virtual_machine.mem %></td>
+        <td><%= virtual_machine.cpu %></td>
+        <td><%= virtual_machine.comments %></td>
+        <td><%= virtual_machine.server_id %></td>
+        <td><%= virtual_machine.service_id %></td>
+        <td><%= link_to 'Show', virtual_machine %></td>
+        <td><%= link_to 'Edit', edit_virtual_machine_path(virtual_machine) %></td>
+        <td><%= link_to 'Destroy', virtual_machine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Virtual machine', new_virtual_machine_path %>

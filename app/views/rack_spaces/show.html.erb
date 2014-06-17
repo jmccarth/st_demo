@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @rack_space.size %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @rack_space.location_id %>
+</p>
+
+<%= link_to 'Edit', edit_rack_space_path(@rack_space) %> |
+<%= link_to 'Back', rack_spaces_path %>

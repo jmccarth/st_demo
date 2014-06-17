@@ -1,0 +1,25 @@
+<%= form_for(@rack_space) do |f| %>
+  <% if @rack_space.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rack_space.errors.count, "error") %> prohibited this rack_space from being saved:</h2>
+
+      <ul>
+      <% @rack_space.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :size %><br>
+    <%= f.number_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :location_id %><br>
+    <%= f.number_field :location_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,31 @@
+<h1>Listing storage_spaces</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Comments</th>
+      <th>Server</th>
+      <th>Service</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @storage_spaces.each do |storage_space| %>
+      <tr>
+        <td><%= storage_space.amount %></td>
+        <td><%= storage_space.comments %></td>
+        <td><%= storage_space.server_id %></td>
+        <td><%= storage_space.service_id %></td>
+        <td><%= link_to 'Show', storage_space %></td>
+        <td><%= link_to 'Edit', edit_storage_space_path(storage_space) %></td>
+        <td><%= link_to 'Destroy', storage_space, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Storage space', new_storage_space_path %>
