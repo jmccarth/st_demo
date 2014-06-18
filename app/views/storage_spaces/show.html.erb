@@ -1,5 +1,24 @@
 <p id="notice"><%= notice %></p>
 
+<div class="panel">
+    <p>
+        <strong>User:</strong>
+        <%= @storage_space.service.user_id %>
+    </p>
+    <p>
+        <strong>Start Date:</strong>
+        <%= @storage_space.service.startdate %>
+    </p>
+    <p>
+        <strong>End Date:</strong>
+        <%= @storage_space.service.enddate %>
+    </p>
+    <p>
+        <strong>Cost:</strong>
+        <%= @storage_space.service.cost %>
+    </p>
+</div>
+
 <p>
   <strong>Amount:</strong>
   <%= @storage_space.amount %>
@@ -12,12 +31,7 @@
 
 <p>
   <strong>Server:</strong>
-  <%= @storage_space.server_id %>
-</p>
-
-<p>
-  <strong>Service:</strong>
-  <%= @storage_space.service_id %>
+  <%= @storage_space.server.name %>
 </p>
 
 <%= link_to 'Edit', edit_storage_space_path(@storage_space) %> |

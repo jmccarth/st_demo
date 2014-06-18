@@ -10,7 +10,6 @@
       <th>Cpu</th>
       <th>Comments</th>
       <th>Server</th>
-      <th>Service</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,8 +23,7 @@
         <td><%= virtual_machine.mem %></td>
         <td><%= virtual_machine.cpu %></td>
         <td><%= virtual_machine.comments %></td>
-        <td><%= virtual_machine.server_id %></td>
-        <td><%= virtual_machine.service_id %></td>
+        <td><%= virtual_machine.server.name %></td>
         <td><%= link_to 'Show', virtual_machine %></td>
         <td><%= link_to 'Edit', edit_virtual_machine_path(virtual_machine) %></td>
         <td><%= link_to 'Destroy', virtual_machine, method: :delete, data: { confirm: 'Are you sure?' } %></td>

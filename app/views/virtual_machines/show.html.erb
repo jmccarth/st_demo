@@ -1,5 +1,36 @@
 <p id="notice"><%= notice %></p>
-<h3>Virtual Machine Details</h3>
+
+<div class="panel">
+    <p>
+        <strong>User:</strong>
+        <%= @virtual_machine.service.user_id %>
+    </p>
+    <p>
+        <strong>Start Date:</strong>
+        <%= @virtual_machine.service.startdate %>
+    </p>
+    <p>
+        <strong>End Date:</strong>
+        <%= @virtual_machine.service.enddate %>
+    </p>
+    <p>
+        <strong>Cost:</strong>
+        <%= @virtual_machine.service.cost %>
+    </p>
+    <p>
+        <strong>Payments:</strong>
+        <% total = 0 %>
+        <% @virtual_machine.service.payments.each do |p| %>
+            <% total += p.amount %>
+            <li><%= p.amount %> on <%= p.paymentdate %></li>
+        <% end %>
+    </p>
+    <p>
+        <strong>Balance:</strong>
+        <%= @virtual_machine.service.cost - total %>
+    </p>
+    
+</div>
 
 <p>
   <strong>Hostname:</strong>
@@ -33,26 +64,7 @@
 
 <p>
   <strong>Server:</strong>
-  <%= @virtual_machine.server_id %>
-</p>
-
-<h3>Service Details</h3>
-
-<p>
-    <strong>User:</strong>
-    <%= @virtual_machine.service.user_id %>
-</p>
-<p>
-    <strong>Start Date:</strong>
-    <%= @virtual_machine.service.startdate %>
-</p>
-<p>
-    <strong>End Date:</strong>
-    <%= @virtual_machine.service.enddate %>
-</p>
-<p>
-    <strong>Cost:</strong>
-    <%= @virtual_machine.service.cost %>
+  <%= @virtual_machine.server.name %>
 </p>
 
 <%= link_to 'Edit', edit_virtual_machine_path(@virtual_machine) %> |

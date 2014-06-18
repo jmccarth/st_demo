@@ -1,5 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+<div class="panel">
+    <h4>Services hosted on this server</h4>
+    <h5>Virtual Machines</h5>
+    <p>
+        <% @server.virtual_machines.each do |vm| %>
+            <li><%= link_to vm.hostname, virtual_machine_path(vm) %></li>
+        <% end %>
+    </p>
+    
+    <h5>Storage Space</h5>
+    <p>
+        <% @server.storage_spaces.each do |space| %>
+            <li><%= link_to space.amount, storage_space_path(space) %></li>    
+        <% end %>
+    </p>
+</div>
+
 <p>
   <strong>Name:</strong>
   <%= @server.name %>
@@ -38,25 +55,6 @@
 <p>
   <strong>Location:</strong>
   <%= @server.location_id %>
-</p>
-
-<p>
-  <strong>Service:</strong>
-  <%= @server.service_id %>
-</p>
-
-<h3>Services hosted on this server</h3>
-<h4>Virtual Machines</h4>
-<p>
-    <% @server.virtual_machines.each do |vm| %>
-        <li><%= link_to vm.hostname, virtual_machine_path(vm) %></li>
-    <% end %>
-</p>
-<p>
-    <h4>Storage Space</h4>
-    <% @server.storage_spaces.each do |space| %>
-        <li><%= link_to space.amount, storage_space_path(space) %></li>    
-    <% end %>
 </p>
 
 <%= link_to 'Edit', edit_server_path(@server) %> |
