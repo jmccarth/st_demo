@@ -9,7 +9,7 @@
       <th>Mem</th>
       <th>Cpu</th>
       <th>Os</th>
-      <th>Size</th>
+      <th>Size (U)</th>
       <th>Location</th>
       <th>Service</th>
       <th colspan="3"></th>
@@ -26,7 +26,7 @@
         <td><%= server.cpu %></td>
         <td><%= server.os %></td>
         <td><%= server.size %></td>
-        <td><%= server.location_id %></td>
+        <td><%= server.location.room %></td>
         <td><%= server.service_id %></td>
         <td><%= link_to 'Show', server %></td>
         <td><%= link_to 'Edit', edit_server_path(server) %></td>

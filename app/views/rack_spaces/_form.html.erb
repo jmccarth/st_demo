@@ -1,4 +1,4 @@
-<%= form_for(@rack_space) do |f| %>
+<%= form_for(setup_rackspace(@rack_space)) do |f| %>
   <% if @rack_space.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@rack_space.errors.count, "error") %> prohibited this rack_space from being saved:</h2>
@@ -19,6 +19,30 @@
     <%= f.label :location_id %><br>
     <%= f.number_field :location_id %>
   </div>
+
+<%= f.fields_for :service do |s| %>
+            <div class="field">
+                <%= s.label :user_id %><br>
+                <%= s.text_field :user_id %>
+            </div>
+            <div class="field">
+                <%= s.hidden_field :servicetype_id, :value => ServiceType.find_by_name("Virtual Machine").id %>
+            </div>
+             
+          <div class="field">
+            <%= s.label :startdate %><br>
+            <%= s.date_select :startdate %>
+          </div>
+          <div class="field">
+            <%= s.label :enddate %><br>
+            <%= s.date_select :enddate %>
+          </div>
+          <div class="field">
+            <%= s.label :cost %><br>
+            <%= s.number_field :cost %>
+          </div>
+    <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

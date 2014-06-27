@@ -1,7 +1,7 @@
 <nav class="top-bar" data-topbar>
     <ul class="title-area">
         <li class="name">
-            <h1><a href="#">MAD Service Tracker</a></h1>
+            <h1><%= link_to 'MAD Service Tracker', root_path %></h1>
         </li>
     </ul>
     
@@ -11,12 +11,14 @@
             <li><%= link_to 'Virtual Machines', virtual_machines_path %></li>
             <li><%= link_to 'Storage Space', storage_spaces_path %></li>
             <li><%= link_to 'Rack Space', rack_spaces_path %></li>
+            <li><%= link_to 'Billing',  services_path %></li>
         </ul>
     </section>
     
     <section class="top-bar-section">
         <ul class="right">
-            <li><%= link_to 'Users', users_path%></li>
+            <li><%= link_to 'Users', users_path %></li>
+            <li><%= link_to 'Locations', locations_path %></li>
         </ul>
     </section>
     

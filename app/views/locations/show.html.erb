@@ -10,5 +10,18 @@
   <%= @location.capacity %>
 </p>
 
+<p>
+    <strong>Server Contents:</strong>
+    <% @location.servers.each do |s| %>
+        <li><%= s.name %> takes up <%= s.size %>U</li>
+    <% end %>
+</p>
+<p>
+    <strong>Reserved Rack Space:</strong>
+    <% @location.rack_spaces.each do |r| %>
+        <li><%= r.service.user_id %> is using <%= r.size %>U</li>
+    <% end %>
+</p>
+
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>

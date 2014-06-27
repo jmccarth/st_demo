@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="small-12 large-4 columns">
+        <h3>Expiring Services</h3>
+        <% exp = Service.get_expiring.sort_by &:enddate %>
+        <% exp.each do |s| %>
+            <div class="panel">
+                <strong>User: <%= s.user_id %></strong><br/>
+                Amount Owing: <%= s.get_balance %><br/>
+                Date Due: <%= s.enddate %><br/>
+            </div>
+        <% end %>
+    </div>
+    <div class="small-12 large-4 columns">
+        <h3>Server Capacity</h3>
+        <% Server.all.each do |s| %>
+            <div class="panel">
+                <strong>Server Name: <%= s.name %></strong><br/>
+                HD: <%= s.get_hd_used %>% Used<br/>
+                Memory: <%= s.get_mem_used %>% Used<br/>
+                CPU: <%= s.get_cpu_used %>% Used<br/>
+            </div>
+        <% end %>
+    </div>
+    <div class="small-12 large-4 columns">
+        <h3>Locations</h3>
+        <% Location.all.each do |l| %>
+            <div class="panel">
+                <strong><%= l.room %></strong><br />
+                Rack Space: <%= l.get_used %>% Used
+            </div>
+        <% end %>
+    </div>
+</div>

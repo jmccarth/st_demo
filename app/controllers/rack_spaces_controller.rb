@@ -69,6 +69,6 @@ class RackSpacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rack_space_params
-      params.require(:rack_space).permit(:size, :location_id)
+      params.require(:rack_space).permit(:size, :location_id,:service_id, service_attributes: [:cost,:id,:startdate,:enddate,:user_id,:servicetype_id])
     end
 end
