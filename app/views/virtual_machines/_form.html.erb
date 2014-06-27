@@ -11,36 +11,44 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :hostname %><br>
-    <%= f.text_field :hostname %>
-  </div>
-  <div class="field">
-    <%= f.label :os %><br>
-    <%= f.text_field :os %>
-  </div>
-  <div class="field">
-    <%= f.label :hd %><br>
-    <%= f.number_field :hd %>
-  </div>
-  <div class="field">
-    <%= f.label :mem %><br>
-    <%= f.number_field :mem %>
-  </div>
-  <div class="field">
-    <%= f.label :cpu %><br>
-    <%= f.number_field :cpu %>
-  </div>
-  <div class="field">
-    <%= f.label :comments %><br>
-    <%= f.text_area :comments %>
-  </div>
-  <div class="field">
-    <%= f.label :server_id %><br>
-    <%= f.collection_select(:server_id, Server.all, :id, :name, prompt: true) %>
-  </div>
-
-    <%= f.fields_for :service do |s| %>
+    <div class="row">
+        <div class="small-12 large-6 columns">
+            <div class="panel">
+                <h4>VM Details</h4>
+              <div class="field">
+                <%= f.label :server_id %><br>
+                <%= f.collection_select(:server_id, Server.all, :id, :name, prompt: true) %>
+              </div>
+              <div class="field">
+                <%= f.label :hostname %><br>
+                <%= f.text_field :hostname %>
+              </div>
+              <div class="field">
+                <%= f.label :os %><br>
+                <%= f.text_field :os %>
+              </div>
+              <div class="field">
+                <%= f.label :hd %><br>
+                <%= f.number_field :hd %>
+              </div>
+              <div class="field">
+                <%= f.label :mem %><br>
+                <%= f.number_field :mem %>
+              </div>
+              <div class="field">
+                <%= f.label :cpu %><br>
+                <%= f.number_field :cpu %>
+              </div>
+              <div class="field">
+                <%= f.label :comments %><br>
+                <%= f.text_area :comments %>
+              </div>
+            </div>
+        </div>
+        <div class="small-12 large-6 columns">
+            <div class="panel">
+                <h4>Service Details</h4>
+            <%= f.fields_for :service do |s| %>
             <div class="field">
                 <%= s.label :user_id %><br>
                 <%= s.text_field :user_id %>
@@ -61,8 +69,16 @@
             <%= s.label :cost %><br>
             <%= s.number_field :cost %>
           </div>
-    <% end %>
+        <% end %>
+            </div>
 
+        </div>
+        
+    </div>
+  
+ 
+
+    
   <div class="actions">
     <%= f.submit %>
   </div>
